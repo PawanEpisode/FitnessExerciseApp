@@ -1,9 +1,29 @@
-import React from 'react'
+import React, { useState } from "react";
 
+import { Box } from "@mui/material";
+import HeroBanner from "../components/HeroBanner";
+import SearchExercises from "../components/SearchExercises";
+import Exercises from "../components/Exercises";
+
+// we can also use context to pass all states to different components
 const Home = () => {
+  const [bodyPart, setBodyPart] = useState("all");
+  const [exercises, setExercises] = useState([]);
   return (
-    <div>Home</div>
-  )
-}
+    <Box>
+      <HeroBanner />
+      <SearchExercises
+        setExercises={setExercises}
+        bodyPart={bodyPart}
+        setBodyPart={setBodyPart}
+      />
+      <Exercises
+        bodyPart={bodyPart}
+        exercises={exercises}
+        setExercises={setExercises}
+      />
+    </Box>
+  );
+};
 
-export default Home
+export default Home;
