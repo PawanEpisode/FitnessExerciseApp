@@ -1,20 +1,16 @@
 import React from "react";
+import { Stack } from "@mui/material";
 import { InfinitySpin } from "react-loader-spinner";
 
 const Loader = () => {
   return (
-    <div
+    <Stack
       className="loader"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: '37px',
-        padding: '20px'
-      }}
+      direction='row' justifyContent='center'
+      alignItems='center' width='100%'
     >
-      <InfinitySpin />
-    </div>
+      <InfinitySpin color='#ff2625'/>
+    </Stack>
   );
 };
 

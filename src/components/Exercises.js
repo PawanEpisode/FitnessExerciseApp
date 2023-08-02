@@ -56,7 +56,6 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
     fetchBodyPartsData();
   }, [bodyPart]);
 
-  console.log("result", currentExercises);
   return (
     <Box
       id="exercises"
@@ -74,12 +73,16 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         flexWrap={"wrap"}
       >
         {resultCard.length ? (
-          <Typography variant="h4" mb="46px">
+          <Typography
+            variant="h4"
+            mb="46px"
+            className="showing-results"
+          >
             Showing Results
           </Typography>
         ) : null}
         {resultCard.length
-          ? resultCard.map((result,index) => (
+          ? resultCard.map((result, index) => (
               <Button
                 key={index}
                 sx={{

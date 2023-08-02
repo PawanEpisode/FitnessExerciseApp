@@ -5,7 +5,6 @@ import Loader from "./Loader";
 import HorizontalScrollBar from "./HorizontalScrollBar";
 
 const SearchExercises = ({ bodyPart, setBodyPart, setExercises}) => {
-  const [loading, setLoading] = useState(false);
   const [bodyParts, setbodyParts] = useState([]);
   const [search, setSearch] = useState("");
   useEffect(() => {
@@ -14,7 +13,6 @@ const SearchExercises = ({ bodyPart, setBodyPart, setExercises}) => {
         `https://exercisedb.p.rapidapi.com/exercises/bodyPartList`,
         exerciseOptions
       );
-        console.log('bodyPartsData',bodyPartsData)
       if (bodyPartsData) {
         setbodyParts(["all", ...bodyPartsData]);
       }
@@ -25,12 +23,10 @@ const SearchExercises = ({ bodyPart, setBodyPart, setExercises}) => {
 
   const handleSearch = async () => {
     if (search) {
-      setLoading(true);
       const exercisedata = await fetchdata(
         `https://exercisedb.p.rapidapi.com/exercises`,
         exerciseOptions
       );
-      console.log(exercisedata);
       const searchedExercises = (exercisedata ?? [])?.filter((eachExercise) => {
         return (
           eachExercise?.name.toLowerCase().includes(search) ||
@@ -42,14 +38,9 @@ const SearchExercises = ({ bodyPart, setBodyPart, setExercises}) => {
 
       setSearch("");
       setExercises(searchedExercises);
-      setLoading(false);
     }
   };
 
-  if (loading) {
-    return <Loader />;
-  }
-  console.log('bodyParts',bodyParts)
   return (
     <Stack justifyContent="center" alignItems="center" mt="37px" p="20px">
       <Typography
@@ -78,7 +69,7 @@ const SearchExercises = ({ bodyPart, setBodyPart, setExercises}) => {
           height="76px"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search Exercises..."
+          placeholder="Search names related to exercise & fitness..."
           type="text"
         />
         <Button
@@ -99,8 +90,8 @@ const SearchExercises = ({ bodyPart, setBodyPart, setExercises}) => {
           Search
         </Button>
       </Box>
-      <Box sx={{position: 'relative', width: '100%', padding: '20px'}}>
-          <HorizontalScrollBar data={[...bodyParts]} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+      <Box sx={{position: 'relative', width: '100%'}}>
+          <HorizontalScrollBar data={[...bodyParts]} bodyPart={bodyPart} setBodyPart={setBodyPart} isBodyParts/>
       </Box>
     </Stack>
   );
