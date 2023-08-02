@@ -1,0 +1,230 @@
+body {
+    font-family: "Josefin Sans";
+    background-color: #fffafb;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.showing-results {
+    margin: 0;
+    background-color: #e2f3ed;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.right-arrow,
+.left-arrow {
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff2625;
+    font-size: 25px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: -20px;
+    right: 80px;
+    transform: scale(1, 1);
+    transition: 0.3s all ease-in-out;
+}
+
+.right-arrow {
+    right: 140px;
+}
+
+.right-arrow:hover,
+.left-arrow:hover {
+    transform: scale(1.3, 1.3);
+}
+
+.react-horizontal-scrolling-menu--wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail-image {
+    width: 600px;
+    height: 600px;
+}
+
+.hero-banner-img {
+    position: absolute;
+    right: 40px;
+    top: 0px;
+    width: 600px;
+    height: 800px;
+    margin-top: -330px;
+}
+
+.exercise-card {
+    width: 275px;
+    background: #fff;
+    border-top: 4px solid #ff2625;
+    border-bottom-left-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-bottom: 10px;
+    transform: scale(1, 1);
+    transition: 0.3s all ease-in-out;
+}
+
+.exercise-card img {
+    height: 200px;
+    width: 200px;
+}
+
+.bodyPart-card {
+    transform: scale(1, 1);
+    transition: 0.3s all ease-in-out;
+}
+
+.exercise-card:hover,
+.bodyPart-card:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.search-btn:hover {
+    color: #ff2625 !important;
+    border: 1px solid #ff2625 !important;
+}
+
+.exercise-video {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    text-decoration: none;
+}
+
+.exercise-video img{
+    border-radius: 20px;
+}
+
+.exercise-video-title {
+    font-size: 20px;
+    font-weight: 600;
+    width: 300px;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.exercise-video-channelname {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: none;
+    color: #e13333;
+}
+
+.exercise-video-publishtime,
+.exercise-video-view {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: none;
+    color: #183216;
+    opacity: 0.6;
+}
+
+.mainSlider .swiper-pagination-bullets {
+    bottom: 1.5rem;
+  }
+  .mainSlider .swiper-pagination-bullet,
+  .bodypartSlider .swiper-pagination-bullet {
+    background: #ff2625;
+  }
+  
+  .bodypartSlider .swiper-button-prev::after {
+    font-size: 2rem;
+  }
+  
+  .bodypartSlider .swiper-button-prev::after,
+  .bodypartSlider .swiper-button-next::after {
+    font-size: 2rem;
+    color: #ff2625;
+    padding: 2rem;
+    width: 200px;
+  }
+
+.bodyPartSlide {
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+}
+@media screen and (max-width: 1200px) {
+    .detail-image {
+    width: 300px;
+    height: 300px;
+    }
+
+    .react-horizontal-scrolling-menu--scroll-container {
+    width: 500px;
+    }
+
+    .left-arrow,
+    .right-arrow {
+    position: static !important;
+    }
+
+    .hero-banner-img {
+        top: 300px;
+        width: 400px;
+        height: 400px;
+    }
+
+    .exercise-card {
+        width: 320px;
+    }
+
+    .exercise-video {
+        width: 320px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .hero-banner-img {
+        top: 300px;
+        width: 200px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .hero-banner-img {
+        top: 270px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .hero-banner-img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .exercise-card {
+        width: 280px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .bodypartSlider {
+        display: flex;
+        padding: 40px;
+    }
+}
