@@ -12,12 +12,12 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const indexOfLastExercise = currentPage * exercisePerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisePerPage;
 
-  const currentExercises = exercises?.slice(
+  const currentExercises = (exercises ?? [])?.slice(
     indexOfFirstExercise,
     indexOfLastExercise
   );
 
-  const resultCard = currentExercises?.reduce((acc, current) => {
+  const resultCard = (currentExercises ?? [])?.reduce((acc, current) => {
     if (!acc?.includes(current?.bodyPart)) {
       acc.push(current?.bodyPart);
     } else if (!acc?.includes(current?.target)) {
@@ -49,7 +49,6 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
           exerciseOptions
         );
       }
-
       setExercises(exerciseData);
     };
 

@@ -16,7 +16,7 @@ const Navbar = () => {
       }}
       px="20px"
     >
-      <Link to="/">
+      <Link to="/fitnessapp">
         <img
           src={Logo}
           alt="Logo"
@@ -29,7 +29,7 @@ const Navbar = () => {
       </Link>
       <Stack direction="row" gap="40px" fontSize="24px" alignItems="flex-end">
         <Link
-          to="/"
+          to="/fitnessapp"
           style={{
             textDecoration: "none",
             color: "#3A1212",
